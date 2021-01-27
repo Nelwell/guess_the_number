@@ -17,7 +17,11 @@ def generate_secret(low, high):
 
 def get_guess():
     '''get user's guess'''
-    return int(input('Guess the secret number? '))
+    try:
+        return int(input('Guess the secret number? '))
+    except Exception as e:
+        print('Please enter an integer!')
+        main()
 
 
 def check_guess(guess, secret):
@@ -31,7 +35,6 @@ def check_guess(guess, secret):
 
 
 def main():
-
     (low, high) = configure_range()
     secret = generate_secret(low, high)
 
